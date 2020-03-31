@@ -12,6 +12,9 @@
 	"activationEvents": [
 		"onCommand:extension.stonks"
 	],
+	"repository": {
+		"url": "https://github.com/bjacobson26/stonks"
+	},
 	"publisher": "vsc-stonks",
 	"keywords": ["stocks", "stock", "stock market", "stonk", "stonks"],
 	"main": "./out/extension.js",
