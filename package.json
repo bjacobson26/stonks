@@ -12,6 +12,7 @@
 	"activationEvents": [
 		"onCommand:extension.stonks"
 	],
+	"publisher": "vsc-stonks",
 	"keywords": ["stocks", "stock", "stock market", "stonk", "stonks"],
 	"main": "./out/extension.js",
 	"contributes": {
