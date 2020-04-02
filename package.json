@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.stonks"
+		"onCommand:extension.stonksGetQuote"
 	],
 	"repository": {
 		"url": "https://github.com/bjacobson26/stonks"
@@ -21,7 +21,7 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.stonks",
+				"command": "extension.stonksGetQuote",
 				"title": "Stonks: Get Quote"
 			}
 		]
