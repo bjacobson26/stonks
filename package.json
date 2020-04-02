@@ -2,7 +2,7 @@
 	"name": "stonks",
 	"displayName": "Stonks",
 	"description": "Get stock quotes from your editor!",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
@@ -16,7 +16,13 @@
 		"url": "https://github.com/bjacobson26/stonks"
 	},
 	"publisher": "vsc-stonks",
-	"keywords": ["stocks", "stock", "stock market", "stonk", "stonks"],
+	"keywords": [
+		"stocks",
+		"stock",
+		"stock market",
+		"stonk",
+		"stonks"
+	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
