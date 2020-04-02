@@ -12,6 +12,11 @@ Enter a stock ticker to get its current market price.
 
 ## Release Notes
 
+### 0.0.2
+
+Add percentage change to Get Quote
+
+
 ### 0.0.1
 
 Get Quote
