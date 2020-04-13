@@ -25,6 +25,23 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "stonks",
+					"title": "Stonks",
+					"icon": "resources/stock.svg"
+				}
+			]
+		},
+		"views": {
+			"stonks": [
+				{
+					"id": "stonks-watchlist",
+					"name": "WATCHLIST"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "extension.stonksGetQuote",
