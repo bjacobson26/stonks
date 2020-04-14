@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
-const yahooFinance: any = require('yahoo-finance');
+import { fetchQuote } from './utils/fetchQuote';
+import { displayQuote } from './utils/displayQuote';
 const _: any = require('lodash');
 
 let getQuote = vscode.commands.registerCommand('extension.stonksGetQuote', async () => {
@@ -9,18 +10,12 @@ let getQuote = vscode.commands.registerCommand('extension.stonksGetQuote', async
   };
   
   const input: any =  await vscode.window.showInputBox(options);
-
-  yahooFinance.quote({
-    symbol: input,
-    modules: ['price']
-  }, (err: any, quotes: any) => {
-    if(err) {
-      vscode.window.showErrorMessage(`Could not retrieve price for ${input}`);
-    } else {
-      let percentChange = (quotes.price.regularMarketChangePercent * 100).toFixed(2);
-      vscode.window.showInformationMessage(`${_.toUpper(input)} $${quotes.price.regularMarketPrice} (${percentChange}%)`);
-    }
-  });
+  return fetchQuote(input).then((quote) => {
+      vscode.window.showInformationMessage(`${_.toUpper(input)}} ${displayQuote(quote)}`)
+    }).catch((err: any) => {
+      console.log(err);
+      vscode.window.showErrorMessage(`Could not retrieve quote for ${input}`);
+    });
 });
 
 export default getQuote;
