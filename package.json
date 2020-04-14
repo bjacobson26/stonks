@@ -10,7 +10,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.stonksGetQuote"
+		"onCommand:extension.stonksGetQuote",
+		"onCommand:extension.stonksAddToWatchlist",
+		"onCommand:extension.stonksRemoveFromWatchlist"
 	],
 	"repository": {
 		"url": "https://github.com/bjacobson26/stonks"
@@ -46,6 +48,14 @@
 			{
 				"command": "extension.stonksGetQuote",
 				"title": "Stonks: Get Quote"
+			},
+			{
+				"command": "extension.stonksAddToWatchlist",
+				"title": "Stonks: Add To Watchlist"
+			},
+			{
+				"command": "extension.stonksRemoveFromWatchlist",
+				"title": "Stonks: Remove from Watchlist"
 			}
 		]
 	},
