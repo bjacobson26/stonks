@@ -12,7 +12,6 @@ export function activate(context: vscode.ExtensionContext) {
 		new WatchlistProvider()
 	);
 
-	
 	context.subscriptions.push(getQuote);
 }
 
