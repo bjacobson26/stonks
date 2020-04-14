@@ -3,6 +3,9 @@ const _: any = require('lodash');
 import { Stock } from './Stock';
 import { fetchQuote } from './utils/fetchQuote';
 import { displayQuote } from './utils/displayQuote';
+import { promises as fs } from 'fs';
+
+const path = require('path');
 
 export class WatchlistProvider implements vscode.TreeDataProvider<Stock> {
   getTreeItem(element: Stock): vscode.TreeItem {
@@ -16,10 +19,13 @@ export class WatchlistProvider implements vscode.TreeDataProvider<Stock> {
   }
 
   private async getStocks(): Promise<Stock[]> {
-    let watchlist = ['MSFT', 'TSLA', 'AAPL'];
-  
-    let results = await Promise.all(
-      watchlist.map(async (symbol): Promise<Stock> => {
+    const pathToJson = path.resolve(__dirname, '../watchlist.json');  
+    const data = await fs.readFile(pathToJson, 'binary');
+    let watchlist = JSON.parse(data);
+
+    let results: Stock[];
+    results = await Promise.all(
+      watchlist.map(async (symbol: any): Promise<Stock> => {
         return fetchQuote(symbol).then((quote) => {
           return new Stock(symbol, displayQuote(quote));
         }).catch((err) => {
