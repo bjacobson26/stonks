@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { fetchQuote } from './utils/fetchQuote';
+import { watchlistProvider } from './extension';
 const _: any = require('lodash');
 const fs = require('fs');
 const path = require('path');
@@ -12,10 +13,9 @@ let addToWatchlist = vscode.commands.registerCommand('extension.stonksAddToWatch
   
   const input: any =  await vscode.window.showInputBox(options);
 
-  // fetch quote to validate it's a a fetchable stock
+  // fetch quote to validate it's a fetchable stock
   fetchQuote(input).then(quote => {
     addSymbolToWatchlist(quote.price.symbol);
-    vscode.window.showInformationMessage(`${quote.price.symbol} added to watchlist`);
   }).catch((err) => {
     vscode.window.showErrorMessage('Invalid stonk. Please try again.');
   });
@@ -34,7 +34,7 @@ function addSymbolToWatchlist(symbol: string) {
 
   fs.writeFile(pathToJson, newWatchlist, (err: any) => {
     if (err) { throw err; }
-    console.log('watchlist updated:', newWatchlist); 
+    watchlistProvider.refresh();
   }); 
 }
 

@@ -10,6 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
+		"onView:stonks-watchlist",
 		"onCommand:extension.stonksGetQuote",
 		"onCommand:extension.stonksAddToWatchlist",
 		"onCommand:extension.stonksRemoveFromWatchlist"
@@ -27,6 +28,15 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"menus": {
+			"view/title": [
+				{
+						"command": "stonks-watchlist.refreshWatchlist",
+						"when": "view == stonks-watchlist",
+						"group": "navigation"
+				}
+			]
+		},
 		"viewsContainers": {
 			"activitybar": [
 				{
@@ -56,6 +66,14 @@
 			{
 				"command": "extension.stonksRemoveFromWatchlist",
 				"title": "Stonks: Remove from Watchlist"
+			},
+			{
+				"command": "stonks-watchlist.refreshWatchlist",
+				"title": "Stonks: Refresh Watchlist",
+				"icon": {
+					"light": "resources/refresh.svg",
+					"dark": "resources/refresh.svg"
+			  }
 			}
 		]
 	},

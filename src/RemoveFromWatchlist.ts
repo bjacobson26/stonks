@@ -1,4 +1,6 @@
 import * as vscode from 'vscode';
+import { watch } from 'fs';
+import { watchlistProvider } from './extension';
 
 const _: any = require('lodash');
 const fs = require('fs');
@@ -12,8 +14,6 @@ let removeFromWatchlist = vscode.commands.registerCommand('extension.stonksRemov
   
   const input: any =  await vscode.window.showInputBox(options);
   removeSymbolFromWatchlist(_.toUpper(input));
-
-  vscode.window.showInformationMessage(`Watchlist Updated`);
 });
 
 function removeSymbolFromWatchlist(symbol: string) {
@@ -22,7 +22,6 @@ function removeSymbolFromWatchlist(symbol: string) {
   let data = fs.readFileSync(pathToJson);
   let watchlist = JSON.parse(data);
 
-  console.log('symbol to delete to watchlist', symbol);
   const index = watchlist.indexOf(symbol);
   watchlist.splice(index, 1);
 
@@ -30,7 +29,7 @@ function removeSymbolFromWatchlist(symbol: string) {
 
   fs.writeFile(pathToJson, newWatchlist, (err: any) => {
     if (err) { throw err; }
-    console.log('watchlist updated:', newWatchlist); 
+    watchlistProvider.refresh();
   }); 
 }
 

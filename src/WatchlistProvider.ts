@@ -37,4 +37,12 @@ export class WatchlistProvider implements vscode.TreeDataProvider<Stock> {
     
     return results;
   }
+
+  private _onDidChangeTreeData: vscode.EventEmitter<Stock | undefined> = new vscode.EventEmitter<Stock | undefined>();
+  readonly onDidChangeTreeData: vscode.Event<Stock | undefined> = this._onDidChangeTreeData.event;
+
+  refresh(): void {
+    this._onDidChangeTreeData.fire();
+    vscode.window.showInformationMessage('Stonk watchlist updated');
+  }
 }

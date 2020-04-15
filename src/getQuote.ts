@@ -11,7 +11,7 @@ let getQuote = vscode.commands.registerCommand('extension.stonksGetQuote', async
   
   const input: any =  await vscode.window.showInputBox(options);
   return fetchQuote(input).then((quote) => {
-      vscode.window.showInformationMessage(`${_.toUpper(input)}} ${displayQuote(quote)}`)
+      vscode.window.showInformationMessage(`${_.toUpper(input)} ${displayQuote(quote)}`)
     }).catch((err: any) => {
       console.log(err);
       vscode.window.showErrorMessage(`Could not retrieve quote for ${input}`);
