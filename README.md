@@ -12,6 +12,12 @@ Enter a stock ticker to get its current market price.
 
 ## Release Notes
 
+### 0.0.3
+
+Add, remove, refresh stonk prices in your own custom watchlist! 
+
+Stonk icon in sidebar
+
 ### 0.0.2
 
 Add percentage change to Get Quote

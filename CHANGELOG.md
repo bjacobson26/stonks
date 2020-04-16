@@ -4,6 +4,12 @@ All notable changes to the "Stonks" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+### 0.0.3
+
+Add, remove, refresh stonk prices in your own custom watchlist! 
+
+Stonk icon in sidebar
+
 ### 0.0.2
 
 Add percentage change to Get Quote
