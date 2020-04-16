@@ -1,12 +1,11 @@
 import * as vscode from 'vscode';
-import { watch } from 'fs';
-import { watchlistProvider } from './extension';
+import { watchlistProvider } from '../extension';
 
 const _: any = require('lodash');
 const fs = require('fs');
 const path = require('path');
 
-let removeFromWatchlist = vscode.commands.registerCommand('extension.stonksRemoveFromWatchlist', async () => {
+let RemoveFromWatchlist = vscode.commands.registerCommand('extension.stonksRemoveFromWatchlist', async () => {
   // The code you place here will be executed every time your command is executed
   let options: vscode.InputBoxOptions = {
     prompt: "Enter a stock ticker"
@@ -33,4 +32,4 @@ function removeSymbolFromWatchlist(symbol: string) {
   }); 
 }
 
-export default removeFromWatchlist;
+export default RemoveFromWatchlist;

@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 const _: any = require('lodash');
-import { Stock } from './Stock';
-import { fetchQuote } from './utils/fetchQuote';
-import { displayQuote } from './utils/displayQuote';
+import { Stock } from '../models/Stock';
+import { fetchQuote } from '../utils/fetchQuote';
+import { displayQuote } from '../utils/displayQuote';
 import { promises as fs } from 'fs';
 
 const path = require('path');

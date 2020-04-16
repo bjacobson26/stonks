@@ -1,11 +1,12 @@
 import * as vscode from 'vscode';
-import { fetchQuote } from './utils/fetchQuote';
-import { watchlistProvider } from './extension';
+import { fetchQuote } from '../utils/fetchQuote';
+import { watchlistProvider } from '../extension';
+
 const _: any = require('lodash');
 const fs = require('fs');
 const path = require('path');
 
-let addToWatchlist = vscode.commands.registerCommand('extension.stonksAddToWatchlist', async () => {
+let AddToWatchlist = vscode.commands.registerCommand('extension.stonksAddToWatchlist', async () => {
   // The code you place here will be executed every time your command is executed
   let options: vscode.InputBoxOptions = {
     prompt: "Enter a stock ticker"
@@ -38,4 +39,4 @@ function addSymbolToWatchlist(symbol: string) {
   }); 
 }
 
-export default addToWatchlist;
+export default AddToWatchlist;
