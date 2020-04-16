@@ -1,5 +1,5 @@
 import '../mocks/yahooFinance';
-import { fetchQuote, yahooFinance } from "../../utils/fetchQuote";
+import { fetchQuote } from "../../utils/fetchQuote";
 
 jest.mock('yahoo-finance');
 
@@ -8,6 +8,7 @@ beforeEach(() => {
 });
 
 test('fetchQuote', () => {
-  fetchQuote('TSLA');
-  expect(yahooFinance).toBeCalledTimes(1);  
+  fetchQuote('TSLA').then((quote) => {
+    expect(quote.foo).toBe('bar');
+  });
 });

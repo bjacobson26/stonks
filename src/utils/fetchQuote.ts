@@ -1,4 +1,4 @@
-export const yahooFinance: any = require('yahoo-finance');
+const yahooFinance: any = require('yahoo-finance');
 
 export async function fetchQuote(symbol: string) {
   let resp = await yahooFinance.quote({
