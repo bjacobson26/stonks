@@ -1,10 +1,10 @@
 const yahooFinance: any = jest.genMockFromModule('yahoo-finance');
 
-function quote() {
-  return new Promise((resolve, reject) => {
-    resolve({ foo: 'bar'});
+export function quote() {
+  return new Promise((resolve) => {
+    resolve({ price: { regularMarketPrice: 123 } });
   });
-}
+};
 
 yahooFinance.quote = quote;
 
