@@ -2,7 +2,7 @@
 	"name": "stonks",
 	"displayName": "Stonks",
 	"description": "Get stock quotes from your editor!",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
@@ -10,7 +10,10 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.stonksGetQuote"
+		"onView:stonks-watchlist",
+		"onCommand:extension.stonksGetQuote",
+		"onCommand:extension.stonksAddToWatchlist",
+		"onCommand:extension.stonksRemoveFromWatchlist"
 	],
 	"repository": {
 		"url": "https://github.com/bjacobson26/stonks"
@@ -25,10 +28,52 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"menus": {
+			"view/title": [
+				{
+					"command": "stonks-watchlist.refreshWatchlist",
+					"when": "view == stonks-watchlist",
+					"group": "navigation"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "stonks",
+					"title": "Stonks",
+					"icon": "resources/stock.svg"
+				}
+			]
+		},
+		"views": {
+			"stonks": [
+				{
+					"id": "stonks-watchlist",
+					"name": "WATCHLIST"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "extension.stonksGetQuote",
 				"title": "Stonks: Get Quote"
+			},
+			{
+				"command": "extension.stonksAddToWatchlist",
+				"title": "Stonks: Add To Watchlist"
+			},
+			{
+				"command": "extension.stonksRemoveFromWatchlist",
+				"title": "Stonks: Remove from Watchlist"
+			},
+			{
+				"command": "stonks-watchlist.refreshWatchlist",
+				"title": "Stonks: Refresh Watchlist",
+				"icon": {
+					"light": "resources/refresh.svg",
+					"dark": "resources/refresh.svg"
+				}
 			}
 		]
 	},
@@ -42,15 +87,16 @@
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
-		"@types/mocha": "^7.0.1",
+		"@types/jest": "25.2.1",
 		"@types/node": "^12.11.7",
 		"@types/vscode": "^1.43.0",
-		"eslint": "^6.8.0",
-		"@typescript-eslint/parser": "^2.18.0",
 		"@typescript-eslint/eslint-plugin": "^2.18.0",
+		"@typescript-eslint/parser": "^2.18.0",
+		"eslint": "^6.8.0",
 		"glob": "^7.1.6",
-		"mocha": "^7.0.1",
-		"typescript": "^3.7.5",
+		"jest": "25.3.0",
+		"ts-jest": "25.3.1",
+		"typescript": "3.8.3",
 		"vscode-test": "^1.3.0"
 	},
 	"dependencies": {
