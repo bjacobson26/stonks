@@ -9,6 +9,10 @@ Enter a stock ticker to get its current market price.
 
 ![](stonkGetQuoteDemo.gif)
 
+### Create a Watchlist
+
+![](watchlist.gif)
+
 
 ## Release Notes
 
