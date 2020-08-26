@@ -3,7 +3,6 @@ import path = require("path");
 import fs = require('fs');
 
 const ViewStonkDetails = vscode.commands.registerCommand('extension.stonksViewStonkDetails', async (stonkTicker?: string) => {
-  console.log("VIEW STONK DETAILS CALLED WITH " + stonkTicker);
   const panel = vscode.window.createWebviewPanel(
     'stonk_details', // Identifies the type of the webview. Used internally
     stonkTicker || "Stonks", // Title of the panel displayed to the user 
