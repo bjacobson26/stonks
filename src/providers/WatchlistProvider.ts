@@ -27,7 +27,11 @@ export class WatchlistProvider implements vscode.TreeDataProvider<Stock> {
     results = await Promise.all(
       watchlist.map(async (symbol: any): Promise<Stock> => {
         return fetchQuote(symbol).then((quote) => {
-          return new Stock(symbol, displayQuote(quote));
+          return new Stock(
+            symbol, 
+            displayQuote(quote),
+            { command: "extension.stonksViewStonkDetails", title: "View Stonk Details", arguments: [symbol] }
+          );
         }).catch((err) => {
           console.log(err);
           return new Stock(symbol, 'unable to fetch quote');
