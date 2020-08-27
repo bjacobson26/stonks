@@ -1,8 +1,8 @@
 {
 	"name": "stonks",
 	"displayName": "Stonks",
-	"description": "Get stock quotes from your editor!",
-	"version": "0.0.3",
+	"description": "Get stock quotes, charts, and news from your editor!",
+	"version": "0.0.4",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
@@ -24,7 +24,10 @@
 		"stock",
 		"stock market",
 		"stonk",
-		"stonks"
+		"stonks",
+		"wall street",
+		"money",
+		"finance"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -79,7 +82,7 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
+		"compile": "tsc -p ./ && node initializer.js",
 		"lint": "eslint src --ext ts",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
