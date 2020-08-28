@@ -1,12 +1,11 @@
 # Change Log
 
-All notable changes to the "Stonks" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+### 0.0.5
+Bug fixes
 
 ### 0.0.4
 
-Click on stonks in your watchlist to view charts and relevant news!
+Click on stonks in your watchlist to view a stonk chart!
 
 ### 0.0.3
 

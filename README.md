@@ -13,16 +13,19 @@ Enter a stock ticker to get its current market price.
 
 ![](watchlist.gif)
 
-### View Stonk charts and news
+### View Stonk charts 
 
-![](chartnews_screenshot.png)
+![](chart.png)
 
 
 ## Release Notes
 
+### 0.0.5
+Bug fixes
+
 ### 0.0.4
 
-Click on stonks in your watchlist to view charts and relevant news!
+Click on stonks in your watchlist to view a stonk chart!
 
 ### 0.0.3
 
