@@ -8,7 +8,7 @@ const ViewStonkDetails = vscode.commands.registerCommand('extension.stonksViewSt
     stonkTicker || "Stonks", // Title of the panel displayed to the user 
     vscode.ViewColumn.One, // Editor column to show the new webview panel in.
     {
-      enableScripts: true
+      enableScripts: true,
     } 
   );
 
